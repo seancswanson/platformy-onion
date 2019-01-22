@@ -1,0 +1,55 @@
+*, *:before, *:after {
+    /* http://paulirish.com/2012/box-sizing-border-box-ftw/ */
+      box-sizing: inherit;
+    }
+    
+     html {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+    
+     /* Force vertical scrollbar so that page does not 'jump' when it appears 
+        http://css-tricks.com/snippets/css/force-vertical-scrollbar/
+     */
+     overflow-y: scroll;
+    
+     /* Hyphens, 
+        but see also http://blog.kenneth.io/blog/2012/03/04/word-wrapping-hypernation-using-css/ 
+     */
+        -webkit-hyphens: auto;
+         -moz-hyphens: auto;
+            -ms-hyphens: auto;
+             -o-hyphens: auto;
+                hyphens: auto;
+    
+        /* http://necolas.github.com/normalize.css/2.0.1/normalize.css */
+        -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+    }
+
+    body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+    }
+    
+    img { 
+        border: 0; 
+        -ms-interpolation-mode: bicubic; /* Better IMG resizing in IE */
+    }
+
+    header {
+        height: 10px;
+        background: black;
+    }
+
+    footer {
+        position: absolute;
+        width: 100vw;
+        left: 0;
+        bottom: 0;
+        height: 10px;
+        background: black;
+    }

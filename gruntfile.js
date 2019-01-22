@@ -9,7 +9,7 @@ module.exports = function(grunt) {
           sourcemap: 'none'
         },
         files: {
-          'src/style/app.css': 'src/style/scss/app.scss'
+          'public/dist/style/app.css': 'public/src/style/scss/app.scss'
         }
       }
     },
@@ -24,7 +24,7 @@ module.exports = function(grunt) {
         ]
       },
       dist: {
-        src: 'src/style/app.css'
+        src: 'public/dist/style/app.css'
       }
     },
     cssmin: {
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
             expand: true,
             cwd: 'css',
             src: ['*.css', '!*.min.css'],
-            dest: 'style',
+            dest: 'public/dist/style',
             ext: '.min.css'
           }
         ]

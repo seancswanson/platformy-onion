@@ -26,7 +26,7 @@
     "grunt-contrib-watch": "latest"
   },
   "scripts": {
-    "build": "babel --watch --presets @babel/env --plugins @babel/plugin-proposal-class-properties src/js/client.js -o dist/js/main.bundle.js",
+    "build": "babel --watch --presets @babel/env --plugins @babel/plugin-proposal-class-properties public/src/js/client.js -o public/dist/js/main.bundle.js",
     "start": "nodemon server.js"
   },
   "author": "",

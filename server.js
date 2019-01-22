@@ -7,7 +7,7 @@ const port = 9900;
 app.use(express.static('public'));
 
 app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/src/index.html');
+  response.sendFile(__dirname + '/public/src/index.html');
 });
 
 const listener = app.listen(port, function() {
