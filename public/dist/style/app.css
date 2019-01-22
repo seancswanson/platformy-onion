@@ -37,7 +37,7 @@ img {
 
 header {
   height: 10px;
-  background: black; }
+  background: #ff6b6b; }
 
 footer {
   position: absolute;
@@ -45,4 +45,4 @@ footer {
   left: 0;
   bottom: 0;
   height: 10px;
-  background: black; }
+  background: #ff6b6b; }
