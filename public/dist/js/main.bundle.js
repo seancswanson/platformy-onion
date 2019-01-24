@@ -55,6 +55,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       this.platforms.create(600, 400, 'ground');
       this.platforms.create(50, 250, 'ground');
       this.platforms.create(750, 220, 'ground'); // ----------
+      // Stars
+
+      this.stars = this.physics.add.group({
+        key: 'star',
+        repeat: 11,
+        setXY: {
+          x: 12,
+          y: 0,
+          stepX: 70
+        }
+      });
+      this.stars.children.iterate(function (child) {
+        child.setBounceY(Phaser.Math.FloatBetween(0.3, 0.8));
+        child.body.setGravityY(300);
+        child.setCollideWorldBounds(true);
+      }); // ----------
       // Player
 
       this.player = this.physics.add.sprite(100, 450, 'dude');
@@ -85,11 +101,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }),
         frameRate: 10,
         repeat: -1
+      });
+      this.anims.create({
+        key: 'jump-right',
+        frames: this.anims.generateFrameNumbers('dude', {
+          start: 6,
+          end: 6
+        }),
+        frameRate: 10,
+        repeat: -1
+      });
+      this.anims.create({
+        key: 'jump-left',
+        frames: this.anims.generateFrameNumbers('dude', {
+          start: 3,
+          end: 3
+        }),
+        frameRate: 10,
+        repeat: -1
       }); // Set Player Gravity
 
       this.player.body.setGravityY(300); // Player/Platform Collide Behavior
 
-      this.physics.add.collider(this.player, this.platforms); // ----------
+      this.physics.add.collider(this.player, this.platforms);
+      this.physics.add.collider(this.stars.children, this.platforms); // ----------
       // Keyboard Input Init
 
       this.cursors = this.input.keyboard.createCursorKeys();
@@ -112,6 +147,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       if (this.cursors.space.isDown && this.player.body.touching.down) {
         this.player.setVelocityY(-330);
+      }
+
+      if (this.cursors.space.isDown && this.cursors.left.isDown) {
+        this.player.anims.play('jump-left', true);
+        this.player.anims.stop('left', true);
+      } else if (this.cursors.space.isDown && this.cursors.right.isDown) {
+        this.player.anims.play('jump-right', true);
+        this.player.anims.stop('right', true);
       }
     }
   };
