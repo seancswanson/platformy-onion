@@ -33,6 +33,7 @@
         padding: 0;
         margin: 0;
         height: 100%;
+        background: rgb(62, 62, 62);
     }
     
     img { 
@@ -41,15 +42,77 @@
     }
 
     header {
-        height: 10px;
-        background: rgb(255, 107, 107);
+        display: flex;
+        background: black;
+        color: white;
+        font-family: monospace;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 0;
+
+        .title {
+            background: url('../assets/title.png') center center no-repeat;
+            background-size: contain;
+            width: 299px;
+            height: 39px;
+        }
+    }
+
+    canvas {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 10px double black;
+        background: white;
     }
 
     footer {
+        display: flex;
         position: absolute;
+        align-items: center;
+        justify-content: center;
         width: 100vw;
+        padding: 10px 0;
         left: 0;
         bottom: 0;
-        height: 10px;
-        background: rgb(255, 107, 107);
+        background: black;
+
+        @keyframes border-blink {
+            from {
+                border-bottom: 2px dashed transparent;
+            }
+            to {
+                border-bottom: 2px dashed white;
+            }
+        }
+
+        .footer-name {
+            background: url('../assets/footer-name.png') center center no-repeat;
+            background-size: contain;
+            width: 159px;
+            height: 14px;
+            margin-right: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px dashed transparent;
+            cursor: pointer;
+            
+            &:hover {
+                animation: border-blink .3s infinite;
+            }
+        }
+
+        .footer-github {
+            background: url('../assets/footer-github.png') center center no-repeat;
+            background-size: contain;
+            width: 41px;
+            height: 11px;
+            padding-bottom: 20px;
+            border-bottom: 2px dashed transparent;
+            cursor: pointer;
+
+            &:hover {
+                animation: border-blink .3s infinite;
+            }
+        }
     }

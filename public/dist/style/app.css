@@ -28,7 +28,8 @@ html {
 body {
   padding: 0;
   margin: 0;
-  height: 100%; }
+  height: 100%;
+  background: #3e3e3e; }
 
 img {
   border: 0;
@@ -36,13 +37,80 @@ img {
   /* Better IMG resizing in IE */ }
 
 header {
-  height: 10px;
-  background: #ff6b6b; }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: black;
+  color: white;
+  font-family: monospace;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 10px 0; }
+  header .title {
+    background: url("../assets/title.png") center center no-repeat;
+    background-size: contain;
+    width: 299px;
+    height: 39px; }
+
+canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border: 10px double black;
+  background: white; }
 
 footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   position: absolute;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100vw;
+  padding: 10px 0;
   left: 0;
   bottom: 0;
-  height: 10px;
-  background: #ff6b6b; }
+  background: black; }
+@-webkit-keyframes border-blink {
+  from {
+    border-bottom: 2px dashed transparent; }
+  to {
+    border-bottom: 2px dashed white; } }
+@keyframes border-blink {
+  from {
+    border-bottom: 2px dashed transparent; }
+  to {
+    border-bottom: 2px dashed white; } }
+  footer .footer-name {
+    background: url("../assets/footer-name.png") center center no-repeat;
+    background-size: contain;
+    width: 159px;
+    height: 14px;
+    margin-right: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px dashed transparent;
+    cursor: pointer; }
+    footer .footer-name:hover {
+      -webkit-animation: border-blink .3s infinite;
+              animation: border-blink .3s infinite; }
+  footer .footer-github {
+    background: url("../assets/footer-github.png") center center no-repeat;
+    background-size: contain;
+    width: 41px;
+    height: 11px;
+    padding-bottom: 20px;
+    border-bottom: 2px dashed transparent;
+    cursor: pointer; }
+    footer .footer-github:hover {
+      -webkit-animation: border-blink .3s infinite;
+              animation: border-blink .3s infinite; }
