@@ -37,7 +37,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var highScore = localStorage.getItem('highscore') ? localStorage.getItem('highscore') : 0; // ----------
 
     function preload() {
-      console.log('preload');
       this.load.image('sky', '../src/assets/sky.png');
       this.load.image('ground', '../src/assets/platform.png');
       this.load.image('star', '../src/assets/star.png');
@@ -50,8 +49,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     function create() {
-      console.log('create'); // Sky
-
+      // Sky
       this.add.image(400, 300, 'sky'); // Score
 
       scoreText = this.add.text(16, 38, 'score: 0', {
@@ -75,7 +73,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       this.stars = this.physics.add.group({
         key: 'star',
-        repeat: 1,
+        repeat: 11,
         setXY: {
           x: 0,
           y: 0,
@@ -152,8 +150,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     function update() {
-      console.log('update'); // Left, Right handler
-
+      // Left, Right handler
       if (this.cursors.left.isDown) {
         this.player.setVelocityX(-250);
         this.player.anims.play('left', true);
@@ -188,13 +185,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     function collectStar(player, star) {
       star.disableBody(true, true);
-      var bombVelocityY = 0;
+      var bombVelocityY = 50;
       score += 10;
       scoreText.setText('Score: ' + score);
       setHighScore();
 
       if (this.stars.countActive(true) === 0) {
-        bombVelocityY += 50;
+        bombVelocityY += 75;
         this.stars.children.iterate(function (child) {
           child.enableBody(true, child.x, 0, true, true);
         });

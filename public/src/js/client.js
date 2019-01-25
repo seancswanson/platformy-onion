@@ -36,7 +36,6 @@
 
       // ----------
       function preload() {
-        console.log('preload');
         this.load.image('sky', '../src/assets/sky.png');
         this.load.image('ground', '../src/assets/platform.png');
         this.load.image('star', '../src/assets/star.png');
@@ -49,7 +48,6 @@
 
       // ----------
       function create() {
-        console.log('create');
 
         // Sky
         this.add.image(400, 300, 'sky');
@@ -81,7 +79,7 @@
         // Stars
         this.stars = this.physics.add.group({
           key: 'star',
-          repeat: 1,
+          repeat: 11,
           setXY: { x: 0, y: 0, stepX: 70 }
         });
 
@@ -158,7 +156,6 @@
 
       // ----------
       function update() {
-        console.log('update');
 
         // Left, Right handler
         if (this.cursors.left.isDown) {
@@ -196,14 +193,14 @@
       function collectStar(player, star) {
         star.disableBody(true, true);
 
-        let bombVelocityY = 0;
+        let bombVelocityY = 50;
 
         score += 10;
         scoreText.setText('Score: ' + score);
         setHighScore();
 
         if (this.stars.countActive(true) === 0) {
-          bombVelocityY += 50;
+          bombVelocityY += 75;
           this.stars.children.iterate(function(child) {
             child.enableBody(true, child.x, 0, true, true);
           });
