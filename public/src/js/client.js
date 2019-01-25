@@ -246,6 +246,8 @@
           smackTalk = 'Getting better, grasshopper.';
         } else if (score <= 650) {
           smackTalk = 'You are gettin\' SPICY! Keep it up!';
+        } else {
+          smackTalk = 'YTMND!';
         }
 
         if (gameOver) {
